@@ -289,7 +289,7 @@ SEARCH PAGE
 .input__wrapper {
   width: 100%;
   max-width: 600px;
-  margin: 0 auto;
+  margin: 24px auto;
   position: relative;
   border-radius: 50px;
   overflow: hidden;
