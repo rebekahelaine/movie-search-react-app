@@ -5,10 +5,10 @@ import Landing from '../components/Landing.jsx'
 import Featured from '../components/Featured.jsx'
 
 
-const Home = () => {
+const Home = ({ searchInput, setSearchInput, navigate }) => {
   return (
     <>
-      <Landing />
+      <Landing searchInput={searchInput} setSearchInput={setSearchInput} navigate={navigate} />
       <Featured />
     </>
   )
