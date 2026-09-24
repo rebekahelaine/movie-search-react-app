@@ -2,24 +2,25 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const Landing = ({ searchInput, setSearchInput, onSearch }) => {
+const Landing = ({ searchInput, setSearchInput, onSearch, setDisplayTerm }) => {
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setDisplayTerm(searchInput)
     navigate('/movies');
   }
 
   return (
     <>
       <section id="landing-page">
-        <header class="header">
-          <div class="header__content">
-            <h1 class="title">Name The Movie</h1>
-            <h2 class="title subtitle">
-              Find Your Favorites, <span class="coral">Learn New Ones</span>
+        <header className="header">
+          <div className="header__content">
+            <h1 className="title">Name The Movie</h1>
+            <h2 className="title subtitle">
+              Find Your Favorites, <span className="coral">Learn New Ones</span>
             </h2>
-            <p class="header__para">
+            <p className="header__para">
               Discover and explore your favorite movies with our easy-to-use
               platform.
             </p>
@@ -29,7 +30,6 @@ const Landing = ({ searchInput, setSearchInput, onSearch }) => {
                 placeholder="Search by title, year or IMDb ID"
                 value={searchInput}
                 onChange={(event) => setSearchInput(event.target.value)}
-                onKeyPress={(event) => event.key === 'Enter' && onSearch()}
               />
               <div className="search__wrapper">
                 <button type="submit">

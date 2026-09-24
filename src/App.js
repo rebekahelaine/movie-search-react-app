@@ -11,14 +11,17 @@ function App() {
   const [searchInput, setSearchInput] = useState("")
   const [movies, setMovies] = useState([])
   const [loading, setLoading] = useState(true)
+  const [displayTerm, setDisplayTerm] = useState("")
 
   async function fetchMovies() {
     const { data } = await axios.get(`https://www.omdbapi.com/?apikey=dcea2402&s=${encodeURIComponent(searchInput)}`)
     setMovies(data)
+    setLoading(false)
   }
   useEffect(() => {
-    if (searchInput)
-    fetchMovies()
+    if (searchInput) {
+      fetchMovies()
+    }
   },[searchInput])
 
   function onSearch() {
@@ -30,8 +33,8 @@ function App() {
       <div className="App">
         <Nav />
         <Routes>
-          <Route path="/" element={<Home searchInput={searchInput} setSearchInput={setSearchInput} />}></Route>
-          <Route path="/movies" element={<Movies searchInput={searchInput} setSearchInput={setSearchInput} fetchMovies={fetchMovies} onSearch={onSearch} movies={movies} />}></Route>
+          <Route path="/" element={<Home searchInput={searchInput} setSearchInput={setSearchInput} setDisplayTerm={setDisplayTerm} />}></Route>
+          <Route path="/movies" element={<Movies searchInput={searchInput} setSearchInput={setSearchInput} displayTerm={displayTerm} setDisplayTerm={setDisplayTerm} fetchMovies={fetchMovies} onSearch={onSearch} movies={movies} loading={loading} setLoading={setLoading} />}></Route>
         </Routes>
         <Footer />
       </div>
