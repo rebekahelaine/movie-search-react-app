@@ -19,10 +19,10 @@ function App() {
     setLoading(false)
   }
   useEffect(() => {
-    if (searchInput) {
+    if (displayTerm) {
       fetchMovies()
     }
-  },[searchInput])
+  },[displayTerm])
 
   function onSearch() {
     fetchMovies(searchInput)

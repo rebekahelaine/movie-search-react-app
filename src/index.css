@@ -352,7 +352,8 @@ button {
 
 .results__header {
   color: whitesmoke;
-  font-size: 60px;
+  font-size: 55px;
+  margin-top: 24px;
 }
 
 .results__list {
