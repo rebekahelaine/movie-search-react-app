@@ -7,7 +7,28 @@ const Movies = ({ searchInput, setSearchInput, fetchMovies, onSearch, movies, lo
 
   const sortedResults = useMemo(() => {
     if (!movies || !movies.Search) return null
-  })
+
+    const results = [...movies.Search]
+
+    if (sortOrder === 'A_TO_Z') {
+      results.sort((a, b) => a.Title.localeCompare(b.Title, undefined, { numeric: true }))
+    }
+    if (sortOrder === 'Z_TO_A') {
+      results.sort((a, b) => b.Title.localeCompare(a.Title, undefined, { numeric: true }))
+    }
+    if (sortOrder === 'NEW_TO_OLD') {
+      results.sort((a, b) => b.Year.localeCompare(a.Year))
+    }
+    if (sortOrder === 'OLD_TO_NEW') {
+      results.sort((a, b) => a.Year.localeCompare(b.Year))
+    }
+
+    return results
+  }, [movies, sortOrder])
+
+  function filterMovies(filter) {
+    setSortOrder(filter)
+  }
 
   return (
     <>
@@ -18,6 +39,7 @@ const Movies = ({ searchInput, setSearchInput, fetchMovies, onSearch, movies, lo
           event.preventDefault();
           setDisplayTerm(searchInput);
           setSearchInput('')
+          setSortOrder('DEFAULT')
           onSearch();
         }}>
           <input 
@@ -32,7 +54,7 @@ const Movies = ({ searchInput, setSearchInput, fetchMovies, onSearch, movies, lo
             </button>
           </div>
         </form>
-        <select className="filterbar" defaultValue="DEFAULT" onChange={(event) => filterMovies(event.target.value)}>
+        <select className="filterbar" value={sortOrder} onChange={(event) => filterMovies(event.target.value)}>
           <option value="DEFAULT" disabled>Sort</option>
           <option value="A_TO_Z">Titles A-Z</option>
           <option value="Z_TO_A">Titles Z-A</option>
@@ -55,7 +77,7 @@ const Movies = ({ searchInput, setSearchInput, fetchMovies, onSearch, movies, lo
         </div>
         ) : displayTerm && (
         <div id="search-results" className="results__list">
-          {movies && movies.Search && movies.Search.slice(0, 6).map((movie) => 
+          {sortedResults && sortedResults.slice(0, 6).map((movie) => 
             <Movie key={movie.imdbID} movie={movie}/>
           )}
         </div>

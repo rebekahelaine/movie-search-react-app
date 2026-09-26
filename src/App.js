@@ -14,7 +14,7 @@ function App() {
   const [displayTerm, setDisplayTerm] = useState("")
 
   async function fetchMovies() {
-    const { data } = await axios.get(`https://www.omdbapi.com/?apikey=dcea2402&s=${encodeURIComponent(searchInput)}`)
+    const { data } = await axios.get(`https://www.omdbapi.com/?apikey=dcea2402&s=${encodeURIComponent(displayTerm)}`)
     setMovies(data)
     setLoading(false)
   }
