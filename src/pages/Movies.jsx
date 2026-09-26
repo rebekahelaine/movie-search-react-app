@@ -1,16 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Movie from '../components/ui/Movie.jsx'
 
 const Movies = ({ searchInput, setSearchInput, fetchMovies, onSearch, movies, loading, setLoading, displayTerm, setDisplayTerm }) => {
-  
-  console.log("displayTerm in Movies", displayTerm)
+  const [sortOrder, setSortOrder] = useState('DEFAULT')
 
-  useEffect(() => {
-    if (movies && movies.Search) {
-      setSearchInput('')
-    }
-  }, [movies, setSearchInput])
+  const sortedResults = useMemo(() => {
+    if (!movies || !movies.Search) return null
+  })
 
   return (
     <>
@@ -20,6 +17,7 @@ const Movies = ({ searchInput, setSearchInput, fetchMovies, onSearch, movies, lo
         <form className="input__wrapper" onSubmit={(event) => {
           event.preventDefault();
           setDisplayTerm(searchInput);
+          setSearchInput('')
           onSearch();
         }}>
           <input 
@@ -34,7 +32,7 @@ const Movies = ({ searchInput, setSearchInput, fetchMovies, onSearch, movies, lo
             </button>
           </div>
         </form>
-        <select className="filterbar" defaultValue="DEFAULT">
+        <select className="filterbar" defaultValue="DEFAULT" onChange={(event) => filterMovies(event.target.value)}>
           <option value="DEFAULT" disabled>Sort</option>
           <option value="A_TO_Z">Titles A-Z</option>
           <option value="Z_TO_A">Titles Z-A</option>

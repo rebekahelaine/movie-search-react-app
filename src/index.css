@@ -378,6 +378,7 @@ button {
   flex-direction: column;
   justify-content: center;
   text-align: left;
+  margin-left: 8px;
 }
 
 .result__title {
@@ -552,5 +553,13 @@ RESPONSIVE DESIGN
 
   input {
     font-size: 32px;
+  }
+
+  .result__poster {
+    max-height: 350px;
+  }
+
+  .result__title {
+    font-size: 60px;
   }
 }
