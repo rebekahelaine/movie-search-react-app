@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Movie from '../components/ui/Movie.jsx'
+import Resultcard from '../components/ui/Resultcard.jsx'
 
 const Movies = ({ searchInput, setSearchInput, fetchMovies, onSearch, movies, loading, setLoading, displayTerm, setDisplayTerm }) => {
   const [sortOrder, setSortOrder] = useState('DEFAULT')
@@ -78,7 +78,7 @@ const Movies = ({ searchInput, setSearchInput, fetchMovies, onSearch, movies, lo
         ) : displayTerm && (
         <div id="search-results" className="results__list">
           {sortedResults && sortedResults.slice(0, 6).map((movie) => 
-            <Movie key={movie.imdbID} movie={movie}/>
+            <Resultcard key={movie.imdbID} movie={movie}/>
           )}
         </div>
       )}
