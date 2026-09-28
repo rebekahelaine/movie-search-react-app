@@ -30,6 +30,8 @@ const Movies = ({ searchInput, setSearchInput, fetchMovies, onSearch, movies, lo
     setSortOrder(filter)
   }
 
+  const visibleResults = sortOrder === 'ALL_RESULTS' ? sortedResults : sortedResults?.slice(0,6)
+
   return (
     <>
       <div className="header__content movie__search--container">
@@ -60,10 +62,12 @@ const Movies = ({ searchInput, setSearchInput, fetchMovies, onSearch, movies, lo
           <option value="Z_TO_A">Titles Z-A</option>
           <option value="NEW_TO_OLD">Newest to Oldest</option>
           <option value="OLD_TO_NEW">Oldest to Newest</option>
+          <option value="ALL_RESULTS">All Results</option>
         </select>
       </div>
       {displayTerm && (
-        <h2 className="results__header">Results for <span className="coral">"{displayTerm}"</span></h2>
+        <h2 className="results__header">
+          {sortOrder === 'ALL_RESULTS' ? 'All Results for' : 'Top 6 Results for'} <span className="coral">"{displayTerm}"</span></h2>
       )}
       {displayTerm && loading ? (
         <div className="result__card">
@@ -77,7 +81,7 @@ const Movies = ({ searchInput, setSearchInput, fetchMovies, onSearch, movies, lo
         </div>
         ) : displayTerm && (
         <div id="search-results" className="results__list">
-          {sortedResults && sortedResults.slice(0, 6).map((movie) => 
+          {visibleResults && visibleResults.map((movie) => 
             <Resultcard key={movie.imdbID} movie={movie}/>
           )}
         </div>

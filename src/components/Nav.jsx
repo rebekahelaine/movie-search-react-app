@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ntmLogo from '../assets/ntm_logo_v2.jpg';
 import { Link } from 'react-router-dom';
 
-const Nav = ({ numberOfItems }) => {
+const Nav = ({ numberOfItems, resetSearch }) => {
   function openMenu() {
     document.body.classList += " menu--open";
   }
@@ -25,7 +25,7 @@ const Nav = ({ numberOfItems }) => {
               </Link>
             </li>
             <li className="nav__list">
-              <Link to="/movies" className="nav__link">
+              <Link to="/movies" className="nav__link" onClick={resetSearch}>
                 Search
               </Link>
             </li>
@@ -44,7 +44,7 @@ const Nav = ({ numberOfItems }) => {
                 </Link>
               </li>
               <li className="menu__list">
-                <Link to="/movies" className="menu__link">
+                <Link to="/movies" className="menu__link" onClick={resetSearch}>
                   Movies
                 </Link>
               </li>

@@ -426,7 +426,7 @@ button {
 /* 
 **
 
-BOOKS PAGE
+MOVIE DETAILS PAGE
 
 **
 */
@@ -440,7 +440,6 @@ BOOKS PAGE
 
 #movie__main {
   flex: 1;
-  background-color: rgb(248,249,250);
 }
 
 .movie__header {
@@ -452,6 +451,7 @@ BOOKS PAGE
 
 .movie__header--title {
   margin-bottom: 0;
+  font-size: 60px;
 }
 
 select {
@@ -506,8 +506,8 @@ select {
 }
 
 .movie__selected--figure {
-  width: 40%;
-  padding: 16px 32px;
+  width: 60%;
+  padding: 16px 16px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -554,25 +554,32 @@ select {
 }
 
 .movie__selected--title {
-  margin-bottom: 8px
+  margin-bottom: 8px;
+  color: rgb(249, 216, 5);
+  font-size: 55px;
+}
+
+.movie__selected--details {
+  display: flex;
+}
+
+.movie__selected--subheading {
+  color:whitesmoke;
+  padding: 8px;
 }
 
 .movie__summary--title {
   margin-bottom: 8px;
+  color:rgb(225, 142, 242);
+  font-size: 35px;
 }
 
 .movie__summary--para {
   margin-bottom: 16px;
-}
-
-/* .book__price {
+  color: whitesmoke;
+  font-family: 'Times New Roman', Times, serif;
   font-size: 16px;
-  margin: 8px 0 24px 0;
-} */
-
-.link__breadcrumbs {
-  color: #bfbfbf;
-  margin-bottom: 16px;
+  text-align: left;
 }
 
 /*
