@@ -2,8 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Resultcard from '../components/ui/Resultcard.jsx'
 
-const Movies = ({ searchInput, setSearchInput, fetchMovies, onSearch, movies, loading, setLoading, displayTerm, setDisplayTerm }) => {
-  const [sortOrder, setSortOrder] = useState('DEFAULT')
+const Movies = ({ searchInput, setSearchInput, fetchMovies, onSearch, movies, loading, setLoading, displayTerm, setDisplayTerm, sortOrder, setSortOrder }) => {
 
   const sortedResults = useMemo(() => {
     if (!movies || !movies.Search) return null

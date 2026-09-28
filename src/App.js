@@ -13,7 +13,8 @@ function App() {
   const [movies, setMovies] = useState([])
   const [loading, setLoading] = useState(true)
   const [displayTerm, setDisplayTerm] = useState("")
-  
+  const [sortOrder, setSortOrder] = useState('DEFAULT')
+
 
   async function fetchMovies() {
     const { data } = await axios.get(`https://www.omdbapi.com/?apikey=dcea2402&s=${encodeURIComponent(displayTerm)}`)
@@ -35,6 +36,7 @@ function App() {
     setDisplayTerm('')
     setMovies([])
     setLoading(true)
+    setSortOrder('DEFAULT')
   }
 
   return (
@@ -43,7 +45,7 @@ function App() {
         <Nav resetSearch={resetSearch} />
         <Routes>
           <Route path="/" element={<Home searchInput={searchInput} setSearchInput={setSearchInput} setDisplayTerm={setDisplayTerm} />}></Route>
-          <Route path="/movies" element={<Movies searchInput={searchInput} setSearchInput={setSearchInput} displayTerm={displayTerm} setDisplayTerm={setDisplayTerm} fetchMovies={fetchMovies} onSearch={onSearch} movies={movies} loading={loading} setLoading={setLoading} />}></Route>
+          <Route path="/movies" element={<Movies searchInput={searchInput} setSearchInput={setSearchInput} displayTerm={displayTerm} setDisplayTerm={setDisplayTerm} fetchMovies={fetchMovies} onSearch={onSearch} movies={movies} loading={loading} setLoading={setLoading} sortOrder={sortOrder} setSortOrder={setSortOrder} />}></Route>
           <Route path="/movie/:imdbID" element={<Moviecard />} />
         </Routes>
         <Footer />

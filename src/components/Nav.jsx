@@ -39,12 +39,12 @@ const Nav = ({ numberOfItems, resetSearch }) => {
             </button>
             <ul className="menu__links">
               <li className="menu__list">
-                <Link to="/" className="menu__link">
+                <Link to="/" className="menu__link" onClick={closeMenu}>
                   Home
                 </Link>
               </li>
               <li className="menu__list">
-                <Link to="/movies" className="menu__link" onClick={resetSearch}>
+                <Link to="/movies" className="menu__link" onClick={() => { resetSearch(); closeMenu(); }}>
                   Movies
                 </Link>
               </li>
