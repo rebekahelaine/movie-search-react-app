@@ -1,5 +1,5 @@
 import './index.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Home from './pages/Home.jsx'
 import Movies from './pages/Movies.jsx'
 import Nav from './components/Nav.jsx'
@@ -16,16 +16,17 @@ function App() {
   const [sortOrder, setSortOrder] = useState('DEFAULT')
 
 
-  async function fetchMovies() {
+  const fetchMovies = useCallback (async () => {
     const { data } = await axios.get(`https://www.omdbapi.com/?apikey=dcea2402&s=${encodeURIComponent(displayTerm)}`)
     setMovies(data)
     setLoading(false)
-  }
+  }, [displayTerm])
+  
   useEffect(() => {
     if (displayTerm) {
       fetchMovies()
     }
-  },[displayTerm])
+  },[displayTerm, fetchMovies])
 
   function onSearch() {
     fetchMovies(searchInput)
