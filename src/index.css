@@ -354,6 +354,7 @@ button {
   color: whitesmoke;
   font-size: 55px;
   margin-top: 24px;
+  margin-left: 12px;
 }
 
 .results__list {
