@@ -11,61 +11,61 @@ const Featured = () => {
   return (
     <>
       <section id="movie__posters">
-        <div class="container">
-          <div class="row">
-            <h2 class="section__title">Our All-Time Faves</h2>
-            <ul class="movie__list">
-              <li class="movie__wrapper">
+        <div className="container">
+          <div className="row">
+            <h2 className="section__title">Our All-Time Faves</h2>
+            <ul className="movie__list">
+              <li className="movie__wrapper">
                 <Link to="/movie/tt0325980">
                   <img
                     src={pirates}
                     alt="Pirates of the Caribbean"
-                    class="movie__poster"
+                    className="movie__poster"
                   />
                 </Link>
               </li>
-              <li class="movie__wrapper">
+              <li className="movie__wrapper">
                 <Link to="/movie/tt0089218">
                   <img
                     src={goonies}
                     alt="Goonies"
-                    class="movie__poster"
+                    className="movie__poster"
                   />
                 </Link>
               </li>
-              <li class="movie__wrapper">
+              <li className="movie__wrapper">
                 <Link to="/movie/tt0468569">
                   <img
                     src={batman}
                     alt="The Dark Knight"
-                    class="movie__poster"
+                    className="movie__poster"
                   />
                 </Link>
               </li>
-              <li class="movie__wrapper">
+              <li className="movie__wrapper">
                 <Link to="/movie/tt0440963">
                   <img
                     src={bourne}
                     alt="Bourne Ultimatum"
-                    class="movie__poster"
+                    className="movie__poster"
                   />
                 </Link>
               </li>
-              <li class="movie__wrapper">
+              <li className="movie__wrapper">
                 <Link to="/movie/tt0186151">
                   <img
                     src={frequency}
                     alt="Frequency"
-                    class="movie__poster"
+                    className="movie__poster"
                   />
                 </Link>
               </li>
-              <li class="movie__wrapper">
+              <li className="movie__wrapper">
                 <Link to="/movie/tt0120631">
                   <img
                     src={everAfter}
                     alt="Ever After"
-                    class="movie__poster"
+                    className="movie__poster"
                   />
                 </Link>
               </li>

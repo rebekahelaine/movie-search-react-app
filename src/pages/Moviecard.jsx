@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Movie from '../components/ui/Movie'
@@ -24,7 +24,7 @@ const Moviecard = () => {
       <div className="result__card">
           <div className="result__poster result__poster--skeleton"></div>
           <div className="result__info">
-            <h4 className="result__title result__title--skeleton"></h4>
+            <h4 className="result__title result__title--skeleton"> </h4>
             <p className="movie__type movie__info--skeleton"></p>
             <p className="movie__year movie__info--skeleton"></p>
             <p className="imdb movie__info--skeleton"></p>

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Resultcard from '../components/ui/Resultcard.jsx'
 
@@ -72,7 +72,7 @@ const Movies = ({ searchInput, setSearchInput, fetchMovies, onSearch, movies, lo
         <div className="result__card">
           <div className="result__poster result__poster--skeleton"></div>
           <div className="result__info">
-            <h4 className="result__title result__title--skeleton"></h4>
+            <h4 className="result__title result__title--skeleton"> </h4>
             <p className="movie__type movie__info--skeleton"></p>
             <p className="movie__year movie__info--skeleton"></p>
             <p className="imdb movie__info--skeleton"></p>

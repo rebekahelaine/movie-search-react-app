@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 
@@ -7,7 +7,7 @@ const Resultcard = ({ movie }) => {
     <>
       <div className="result__card ">
         <Link to={`/movie/${movie.imdbID}`}>
-           <img className="result__poster" src={movie.Poster}></img>
+           <img className="result__poster" src={movie.Poster} alt="movie poster"></img>
         </Link>
         <div className="result__info">
           <Link to={`/movie/${movie.imdbID}`}>
